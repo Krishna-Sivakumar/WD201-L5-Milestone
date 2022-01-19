@@ -1,3 +1,27 @@
+## Final Results!
+
+**All tests passing:**
+
+![](tests_passing.png)
+
+**All Tasks:**
+
+![](s1.png)
+
+**Current Tasks:**
+
+![](s2.png)
+
+**Soft Deleted Task Showcase:**
+
+![](s3.png)
+
+![](s4.png)
+
+
+
+<hr>
+
 In This milestone, you will be extending the functionality of the project we worked in the level.
 
 The specification for this program is as follows,
