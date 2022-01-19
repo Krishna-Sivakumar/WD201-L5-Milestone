@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Django Basics</title>
+    </head>
+    <body>
+        <p><a href="/tasks/">Back to main page</a></p>
+        {% if current|length > 0 %}
+        <h1>Current Tasks</h1>
+        <ol>
+        {% for task in current %}
+            <li>{{task.title}}</li>
+        {% endfor %}
+        </ol>
+        {% else %}
+        <p>No current tasks.</p>
+        {% endif %}
+
+        {% if completed|length > 0 %}
+        <h1>Completed Tasks</h1>
+        <ol>
+        {% for task in completed %}
+            <li>{{task.title}}</li>
+        {% endfor %}
+        </ol>
+        {% else %}
+        <p>No completed tasks.</p>
+        {% endif %}
+    </body>
+</html>

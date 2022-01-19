@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Django Basics</title>
+    </head>
+    <body>
+        <h1>Task Management Application</h1>
+        <p>
+            <a href="/completed_tasks">Completed Tasks</a> |  <a href="/all_tasks">All Tasks</a>
+        </p>
+        <form action="/add-task" method="get">
+            <input type="text" name="task" />
+            <input type="submit" value="Add Task">
+        </form>
+
+        {% if tasks|length > 0 %}
+        <h1>Tasks:</h1>
+        <ol>
+        {% for task in tasks %}
+            <li>{{task.title}} [<a href="/delete-task/{{task.id}}">Delete</a> | <a href="/complete_task/{{task.id}}/">Complete</a>]</li>
+        {% endfor %}
+        </ol>
+        {% endif %}
+    </body>
+</html>
