@@ -4,21 +4,21 @@
     </head>
     <body>
         <p><a href="/tasks/">Back to main page</a></p>
-        {% if current|length > 0 %}
+        {% if tasks.current|length > 0 %}
         <h1>Current Tasks</h1>
         <ol>
-        {% for task in current %}
-            <li>{{task.title}}</li>
+        {% for task in tasks.current %}
+            <li>{{task.title}} [{{task.priority}}]</li>
         {% endfor %}
         </ol>
         {% else %}
         <p>No current tasks.</p>
         {% endif %}
 
-        {% if completed|length > 0 %}
+        {% if tasks.completed|length > 0 %}
         <h1>Completed Tasks</h1>
         <ol>
-        {% for task in completed %}
+        {% for task in tasks.completed %}
             <li>{{task.title}}</li>
         {% endfor %}
         </ol>

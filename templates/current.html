@@ -7,8 +7,10 @@
         <p>
             <a href="/completed_tasks">Completed Tasks</a> |  <a href="/all_tasks">All Tasks</a>
         </p>
-        <form action="/add-task" method="get">
-            <input type="text" name="task" />
+
+        <form action="/tasks/" method="post">
+            {% csrf_token %}
+            {{ form }}
             <input type="submit" value="Add Task">
         </form>
 
@@ -16,7 +18,7 @@
         <h1>Tasks:</h1>
         <ol>
         {% for task in tasks %}
-            <li>{{task.title}} [<a href="/delete-task/{{task.id}}">Delete</a> | <a href="/complete_task/{{task.id}}/">Complete</a>]</li>
+            <li>{{task.title}} [{{task.priority}}] [<a href="/delete-task/{{task.id}}">Delete</a> | <a href="/complete_task/{{task.id}}/">Complete</a>]</li>
         {% endfor %}
         </ol>
         {% endif %}
