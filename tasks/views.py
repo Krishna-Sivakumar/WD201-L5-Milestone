@@ -21,16 +21,16 @@ def delete_task_view(request, task_index):
 
 
 def complete_task_view(request, task_index):
-    Task.objects.filter(id=task_index).update(completed=True)
+    Task.objects.filter(id=task_index).update(completed=True, deleted=False)
     return HttpResponseRedirect("/tasks/")
 
 
 def completed_task_view(request):
-    return render(request, "completed.html", {"tasks": Task.objects.filter(completed=True)})
+    return render(request, "completed.html", {"tasks": Task.objects.filter(completed=True, deleted=False)})
 
 
 def all_tasks_view(request):
     return render(
         request, "all.html", {"current": Task.objects.filter(completed=False, deleted=False),
-                              "completed": Task.objects.filter(completed=True)}
+                              "completed": Task.objects.filter(completed=True, deleted=False)}
     )
